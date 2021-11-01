@@ -7,12 +7,12 @@ include 'include/connection.php';
         $sql = 'SELECT * FROM borrow ORDER BY created_at';
     }
     else {
-        $sql = 'SELECT * FROM borrow where member_id = '.$_SESSION["lms"]["id"].' AND return_date = null ORDER BY created_at';
+        $sql = 'SELECT * FROM borrow where member_id = '.$_SESSION["lms"]["id"].' AND return_date Is null ORDER BY created_at';
     }
 
         $result = mysqli_query($conn, $sql);
 
-        $books = mysqli_fetch_all($result, MYSQL_ASSOC);
+        $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
         mysqli_free_result($result);
 

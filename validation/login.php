@@ -20,12 +20,11 @@ if(isset($_POST['username']) &&isset($_POST['password'])){
         $result = mysqli_query($conn, $sql);
         $members = mysqli_fetch_assoc($result);
         mysqli_close($conn);
-        if(count($members['username']) == 1){
+        if(mysqli_num_rows($result) == 1){
             $_SESSION['lms'] = $members;
             header('Location: ../index.php');
         }
         else{
-
             header('Location: ../login.php?error=Username Password not correct');
         }
             

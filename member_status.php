@@ -26,7 +26,7 @@ include 'include/session.php';
 
                         $result = mysqli_query($conn, $sql);
 
-                        $members = mysqli_fetch_all($result, MYSQL_ASSOC);
+                        $members = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                         mysqli_free_result($result);
 
